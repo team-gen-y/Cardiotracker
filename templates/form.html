@@ -1,0 +1,90 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section container">
+        <legend class=" mb-4">Welcome to Cardiotracker!</legend>
+        <legend class=" mb-4 ml-2">Complete the form with accurate details to get the best results</legend>
+        <legend class=" mb-4 ml-2">Form Details</legend>
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group ml-5">
+                <div class="form-group row">
+                    {{ form.name.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.name(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.height.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.height(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.age.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.age(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row ">
+                    {{ form.gender.label(class='col-sm-2 col-form-label radio-inline') }}
+                   <div class="col-sm-5">
+                    {% for subfield in form.gender %}
+                    <tr class="col-sm-5">
+                        <td class="col-sm-2">{{ subfield }}</td>
+                        <td class="col-sm-2">{{ subfield.label }}</td>
+                    </tr>
+                    {% endfor %}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.s_blood_pressure.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.s_blood_pressure(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.d_blood_pressure.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.d_blood_pressure(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.cholestrol.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.cholestrol(class='form-control custom-select') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.glucose.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.glucose(class='form-control custom-select') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.smoking.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.smoking(class='form-control custom-select') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.alcohol.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.alcohol(class='form-control custom-select') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.physical.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.physical(class='form-control custom-select') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.disease.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.disease(class='form-control custom-select') }}
+                   </div>
+                </div>
+            </fieldset>
+        </form>
+    </div>
+{% endblock content %}
