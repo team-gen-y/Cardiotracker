@@ -29,5 +29,5 @@ forest = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random
 forest.fit(X_train, Y_train)
 model = forest
 
-#model.predict(np.array)
+model.predict(np.array)
 
