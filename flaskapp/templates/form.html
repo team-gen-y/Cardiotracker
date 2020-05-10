@@ -1,7 +1,6 @@
 {% extends "layout.html" %}
 {% block content %}
     <div class="content-section container">
-        <legend class=" mb-4">Welcome to Cardiotracker!</legend>
         <legend class=" mb-4 ml-2">Complete the form with accurate details to get the best results</legend>
         <legend class=" mb-4 ml-2">Form Details</legend>
         <form method="POST" action="">
@@ -14,15 +13,21 @@
                    </div>
                 </div>
                 <div class="form-group row">
+                    {{ form.age.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.age(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
                     {{ form.height.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.height(class='form-control') }}
                    </div>
                 </div>
                 <div class="form-group row">
-                    {{ form.age.label(class='col-sm-2 col-form-label') }}
+                    {{ form.weight.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
-                    {{ form.age(class='form-control') }}
+                    {{ form.weight(class='form-control') }}
                    </div>
                 </div>
                 <div class="form-group row ">
@@ -85,6 +90,9 @@
                    </div>
                 </div>
             </fieldset>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info") }}
+            </div>
         </form>
     </div>
 {% endblock content %}

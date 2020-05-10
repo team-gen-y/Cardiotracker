@@ -1,14 +1,15 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,IntegerField,RadioField, SelectField
+from wtforms import StringField,IntegerField,RadioField, SelectField,SubmitField
 from wtforms.validators import DataRequired, Length, Email 
 
 class cardioForm(FlaskForm):
     name = StringField('Name',
                            validators=[DataRequired(), Length(min=2, max=20)])
+    age = IntegerField('Age',
+                        validators=[DataRequired()])
     height = IntegerField('Height',
                         validators=[DataRequired()])
-
-    age = IntegerField('Age',
+    weight = IntegerField('Weight',
                         validators=[DataRequired()])
     gender = RadioField('Gender',
                         choices=[(1,'Male'),(0,'Female')],
@@ -31,3 +32,4 @@ class cardioForm(FlaskForm):
                         choices=[(1,'Yes'),(0,'No')])
     disease = SelectField('Presence of cardiovascular disease',
                         choices=[(1,'Yes'),(0,'No')])
+    submit = SubmitField('View Result')
