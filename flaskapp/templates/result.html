@@ -1,4 +1,8 @@
 {% extends "layout.html" %}
 {% block content %}
-    <h1>Hi</h1>
+    {% if stat  %}
+        <h1>You are at high risk of cardiac disease!</h1>
+    {% else %}
+        <h1>You are safe!</h1>
+    {% endif %}
 {% endblock content %}

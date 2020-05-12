@@ -6,7 +6,7 @@
         <form method="POST" action="">
             {{ form.csrf_token }}
             {{ form.hidden_tag() }}
-            <fieldset class="form-group ml-5">
+            <fieldset class="form-group">
                 <div class="form-group row">
                     {{ form.name.label(class='col-sm-2 col-form-label') }}
                     {% if form.name.errors %}
@@ -109,7 +109,7 @@
                    </div>
                 </div>
             </fieldset>
-            <div class="form-group ">
+            <div class="form-group submit-home">
                 {{ form.submit(class="btn btn-outline-info") }}
             </div>
         </form>

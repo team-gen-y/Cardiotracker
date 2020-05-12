@@ -19,7 +19,7 @@ class cardioForm(FlaskForm):
     weight = IntegerField('Weight',
                         validators=[DataRequired()])
     gender = NonValidatingRadioField('Gender',
-                        choices=[(1,'Male'),(0,'Female')],
+                        choices=[(1,'Male'),(2,'Female')],
                         validators=[DataRequired()])
     s_blood_pressure = IntegerField('Systolic blood pressure',
                         validators=[DataRequired()])

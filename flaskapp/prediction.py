@@ -9,7 +9,7 @@ import pandas as pd
 import seaborn as sns
 
 
-df = pd.read_csv('cardio_train.csv', sep = ';')
+df = pd.read_csv('flaskapp/cardio_train.csv', sep = ';')
 df.drop("id",axis=1,inplace=True)
 df.drop_duplicates(inplace=True)
 df['years'] = (df['age'] / 365).round(0)
@@ -28,6 +28,6 @@ from sklearn.ensemble import RandomForestClassifier
 forest = RandomForestClassifier(n_estimators = 10, criterion = 'entropy', random_state = 1)
 forest.fit(X_train, Y_train)
 model = forest
-
-model.predict(np.array)
+arr = np.array([[1,155,67,120,80,1,1,0,0,1,56],[1,155,67,120,80,1,1,0,0,1,56]])
+print(model.predict(arr))
 
