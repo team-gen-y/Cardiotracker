@@ -1,8 +1,84 @@
 {% extends "layout.html" %}
+{% block heading %}
+View detailed insights and full report
+{% endblock heading %}
 {% block content %}
+<div class="container">
     {% if stat  %}
-        <h1>You are at high risk of cardiac disease!</h1>
-    {% else %}
-        <h1>You are safe!</h1>
+        <br>
+        <h2 class="text-center"><strong>Results</strong></h2>
+        <br>
+        <h1 class="text-center text-danger"><strong>High risk!</strong></h1>
+        <br>
+        <p class="res-text">
+            Your results based on the data you have given reveal that you have a high risk level of having any of the cardiovascular 
+            diseases such as Stroke,pericardial disease,heart valve disease or even likely to have a silent 
+            heart attack in the future which needs immediate attention!!!
+        </p>
+        <br>    
+        <p class="res-text">
+            Please consult a cardiologist immediately and treat the underlying 
+            cause.
+        </p>
+        <br>    
+        <p class="res-text">
+            To gain more insights,lifestyle changes and a detailed report , please 
+        </p>
+        <div>
+            <nav class="navbar navbar-expand-sm bg-light mx-auto" style="display: block; width: 200px; min-width: 100px;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                  <li class="nav-item p-2">
+                    <a class="btn btn-dark" href="#">Sign In</a>
+                  </li>
+                  <li class="nav-item p-2">
+                    <p>or</p>
+                  </li>
+                  <li class="nav-item p-2">
+                    <a class="btn btn-dark" href="#">Sign Up</a>
+                  </li>
+                </ul>
+              </nav>
+              <br>   
+              <br>
+        </div>
+        {% else %}
+        <br>
+        <h2 class="text-center"><strong>Results</strong></h2>
+        <br>
+        <h1 class="text-center text-success"><strong>Low risk!</strong></h1>
+        <br>
+        <p class="res-text">
+            Your results based on the data you have given reveal that you have a low risk level of having any of the cardiovascular 
+diseases such as Stroke,pericardial disease,heart valve disease. It's still advised to follow a healthy lifestyle by actively 
+involving in fitness activities like walking,jogging,HIIT,swimming or whatever possible, no matter your age.
+        </p>
+        <br>    
+        <p class="res-text">
+            A good diet, active lifestyle and regular checkups will help keep you in good condition
+        </p>
+        <br>    
+        <p class="res-text">
+            To gain more insights,lifestyle changes and a detailed report , please 
+        </p>
+        <div>
+            <nav class="navbar navbar-expand-sm bg-light mx-auto" style="display: block; width: 200px; min-width: 100px;">
+                <!-- Links -->
+                <ul class="navbar-nav">
+                  <li class="nav-item p-2">
+                    <a class="btn btn-dark" href="#">Sign In</a>
+                  </li>
+                  <li class="nav-item p-2">
+                    <p>or</p>
+                  </li>
+                  <li class="nav-item p-2">
+                    <a class="btn btn-dark" href="#">Sign Up</a>
+                  </li>
+                </ul>
+              </nav>
+              <br>   
+              <br>
+        </div>
     {% endif %}
+</div>
 {% endblock content %}

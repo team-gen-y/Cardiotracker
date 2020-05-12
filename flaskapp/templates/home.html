@@ -1,4 +1,7 @@
 {% extends "layout.html" %}
+{% block heading %}
+Welcome to Cardiotracker!
+{% endblock heading %}
 {% block content %}
     <div class="content-section container">
         <legend class=" mb-4 ml-2">Complete the form with accurate details to get the best results</legend>
@@ -110,7 +113,7 @@
                 </div>
             </fieldset>
             <div class="form-group submit-home">
-                {{ form.submit(class="btn btn-outline-info") }}
+                {{ form.submit(class="btn btn-dark") }}
             </div>
         </form>
     </div>

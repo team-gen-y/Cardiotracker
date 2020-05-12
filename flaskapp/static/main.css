@@ -60,16 +60,17 @@
     margin-left: 350px;  
   }
   #list{
-      height: 376px;
+      height: 95vh;
   }
   .top-nav-link{
     color: white;
-    font-size: 40px;
+    font-size: 10vh;
+    padding: 30px;
   }
 
   .top-nav-link:hover{
     color: grey;
-    font-size: 50px;
+    font-size: 12vh;
   }
 
   #first{
@@ -81,4 +82,42 @@
     color: white;
     font-size: 30px;
   }
-  
+  #footer-bar{
+    font-size: 20px;
+    padding-bottom: 0px;
+}
+.footer-list-text{
+  color: white;
+}
+
+.footer-list-text:hover{
+  color: grey;
+}
+.res-text{
+  font-size: 2vh;
+}
+.typer{
+  animation: typing 10s steps(41) forwards, blink-caret .8s;
+  animation-iteration-count: 1;
+  justify-content: center;
+  overflow: hidden;
+  display: inline-block;
+  white-space: nowrap;
+  color: #fff;
+}
+
+@keyframes blink-caret{
+  from, to {border-color:transparent;}
+  50% {border-color: #fff;}
+}
+
+@keyframes typing{
+  0% {width: 0%;}
+  30% {width: 100%;}
+  /* 80% {width: 100%;}
+  90% {width: 100%;}
+  100% {width: 100%;} */
+}
+.blinking{
+  display: inline-block;
+}
