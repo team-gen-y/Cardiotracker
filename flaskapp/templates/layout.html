@@ -7,6 +7,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='main.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
   <div class="pos-f-t">
@@ -33,6 +34,16 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="navbar-brand mx-auto ml-5" style="color: aliceblue;">Cardiotracker</div>
+      <div class="btn-group">
+        <button type="button" class="btn btn-secondary dropdown-toggle" id="top-right-user" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user" ></i>
+          User Options
+        </button>
+        <div class="dropdown-menu dropdown-menu-right" >
+          <button class="dropdown-item" type="button" data-toggle="modal" data-target="#loginForm">Login</button>
+          <button class="dropdown-item" type="button" data-toggle="modal" data-target="#regForm">Sign Up</button>
+        </div>
+      </div>
     </nav>
   </div>
     <header class="masthead">
@@ -44,15 +55,8 @@
           </div>
         </div>
     </header>    
-    {% with messages = get_flashed_messages(with_categories=true) %}
-      {% if messages %}
-        {% for category,message in messages %}
-          <div class="alert alert-{{ category }}">
-              {{ message }}
-          </div>
-        {% endfor %}
-      {% endif %}
-    {% endwith %}
+    {% include "partials/login.html" %}
+    {% include "partials/register.html" %}
     {% block content %}{% endblock %}
     <footer id="sticky-footer" class="py-4 text-white-50">
       <div class="container text-center">

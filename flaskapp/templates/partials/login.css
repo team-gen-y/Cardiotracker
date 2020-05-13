@@ -1,0 +1,21 @@
+.card-header{
+    border-bottom: none;
+    background-color: white;
+}
+.card-group{
+    width: 950px;
+    border: 1px solid slategray;
+    margin: auto;
+ }
+.card{
+    border: none;
+    margin: none;
+}
+*{
+    font-family: 'Poppins', sans-serif;
+}
+
+.bt{
+    color: white;
+    background-color: black;
+}

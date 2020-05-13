@@ -121,3 +121,82 @@
 .blinking{
   display: inline-block;
 }
+#top-right-user{
+  background-color: black;
+  border: none;
+}
+#top-right-user:hover{
+ cursor: pointer;
+}
+
+.card-header{
+  border-bottom: none;
+  background-color: white;
+}
+.card-group{
+  width: 950px;
+  border: 1px solid slategray;
+  margin: auto;
+}
+.card{
+  border: none;
+  margin: none;
+}
+*{
+  font-family: 'Poppins', sans-serif;
+}
+
+.bt{
+  color: white;
+  background-color: black;
+}
+
+/* .card-group{
+  width: 950px;
+  border: 1px solid slategray;
+  margin: auto;
+  margin-top: 200px;
+}
+.card{
+  border: none;
+  margin: none;
+}
+@media only screen and (max-width: 600px) {
+  
+  .leftbar{
+      display: none;
+  }
+}
+
+*{
+  font-family: 'Poppins', sans-serif;
+}
+.text-white{
+  color: white;
+}
+.card-header{
+  border-bottom:none ;
+  background-color:white ;
+}
+#submit{
+ height: 70px;
+}
+.sign-link{
+  color: #f00000;
+  text-decoration: underline;
+}
+#signup{
+ display: block; 
+ position: fixed;
+ left: 200px;
+ top: 00px;
+}
+.opaque{
+  opacity: 0.5;
+}
+#signup{
+  display: none;
+}
+.card-body{
+  border: none;
+} */
