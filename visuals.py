@@ -34,6 +34,24 @@ def bpdisp(ID, df):
     #sns.lineplot(x = data.date, y = data.ap_lo, color = 'blue').set_xticklabels(df.date, rotation = 90)
     #sns.lineplot(x = data.date, y = data.ap_hi, color = 'yellow').set_xticklabels(df.date, rotation = 90)
     
+def bp_lo(ID, df):
+	data = df.loc[df.id == ID]
+	plt.plot(data.date, data.ap_lo, color = 'yellow')
+	plt.xticks(rotation = 90)
+	plt.xlabel('date')
+	plt.ylabel('BP')
+	plt.grid()
+	plt.show()
+	
+def bp_hi(ID, df):
+	data = df.loc[df.id == ID]
+	plt.plot(data.date, data.ap_hi, color = 'blue')
+	plt.xticks(rotation = 90)
+	plt.xlabel('date')
+	plt.ylabel('BP')
+	plt.grid()
+	plt.show()
+
 def alcoperday(ID, df):
     data = df.loc[df.id == ID]
     plt.plot(data.date, data.num_alco, color = 'red')
@@ -63,9 +81,11 @@ def bminweight(ID, df):
     plt.grid()
     plt.show()
     
-smokeperday() #put parameters customer_id and 'df'
+#smokeperday() #put parameters customer_id and 'df'
 bpdisp() #put parameters customer_id and 'df'
-alcoperday() #put parameters customer_id and 'df'
-activtime() #put parameters customer_id and 'df'
+bp_lo()
+bp_hi()
+#alcoperday() #put parameters customer_id and 'df'
+#activtime() #put parameters customer_id and 'df'
 bminweight() #put parameters customer_id and 'df'
 
