@@ -9,7 +9,19 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+from csv import writer
+
+def append_list_as_row(file_name, list_of_elem):
+	with open(file_name, list_of_elem):
+		csv_writer = writer(write_obj)
+		csv_writer.writerow(list_of_elem)
+		
+
 df = pd.read_csv('user_data.csv')
+
+#use the functio below 
+def new_record(record):
+	append_list_as_row('user_data.csv', record)
 
 def smokeperday(ID, df):
     data = df.loc[df.id == ID]
