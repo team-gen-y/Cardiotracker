@@ -1,0 +1,22 @@
+{% extends "layout.html" %}
+{% block heading %}
+The latest information in cardiovascular medicine
+{% endblock heading %} 
+{% block content %}
+<div class="container">
+    <div class="card-deck">
+    <div class="card">
+        {% for headline in allheadlines %}
+        <div class="card card-newsfeeds">
+            <h3 class="card-header">{{ headline.title }}</h1>
+            <a href="{{ headline.link }}" class="card-body">Read full story</a>
+            <h4 class="card-footer">{{ headline.description }}</h4>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+<script>
+    const masthead = document.querySelector('header');
+    masthead.style.display ='none' ;
+</script>
+{% endblock content %}

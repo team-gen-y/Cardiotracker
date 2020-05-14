@@ -129,74 +129,107 @@
  cursor: pointer;
 }
 
-.card-header{
-  border-bottom: none;
-  background-color: white;
-}
 .card-group{
   width: 950px;
   border: 1px solid slategray;
   margin: auto;
 }
-.card{
-  border: none;
-  margin: none;
-}
+
 *{
   font-family: 'Poppins', sans-serif;
 }
-
+.card{
+  padding: 10px;
+  margin: 20px;
+}
 .bt{
   color: white;
   background-color: black;
 }
 
-/* .card-group{
-  width: 950px;
-  border: 1px solid slategray;
-  margin: auto;
-  margin-top: 200px;
+.Risk-checker {
+  width: 319px;
+  height: 71px;
+  font-family: Poppins;
+  font-size: 50px;
+  font-weight: 600;
+  font-stretch: normal;
+  font-style: normal;
+  line-height: 1.52;
+  letter-spacing: normal;
+  text-align: left;
+  color: #000000;
 }
-.card{
+.form-group{
+  margin: 0;
   border: none;
-  margin: none;
-}
-@media only screen and (max-width: 600px) {
-  
-  .leftbar{
-      display: none;
-  }
 }
 
-*{
-  font-family: 'Poppins', sans-serif;
-}
-.text-white{
-  color: white;
-}
-.card-header{
-  border-bottom:none ;
-  background-color:white ;
-}
-#submit{
- height: 70px;
-}
-.sign-link{
-  color: #f00000;
-  text-decoration: underline;
-}
-#signup{
- display: block; 
- position: fixed;
- left: 200px;
- top: 00px;
-}
-.opaque{
-  opacity: 0.5;
-}
-#signup{
-  display: none;
-}
-.card-body{
+form{
   border: none;
-} */
+}
+
+.bt :hover{
+  cursor: pointer;
+}
+/* 
+.bts{
+  width: 50%;
+ } */
+
+.why{
+  width: 722px;
+
+  height: 71px;
+
+  font-family: Poppins;
+
+  font-size: 4vh;
+
+  font-weight: 600;
+
+  font-stretch: normal;
+
+  font-style: normal;
+
+  line-height: 1.52;
+
+  letter-spacing: normal;
+
+  text-align: left;
+
+  color: #000000;
+  
+  margin-left: 5%;
+  
+}
+
+.why-yes{
+  font-size: 2vh;
+
+  font-family: Poppins;
+
+  font-weight: 600;
+
+  line-height: 1.52;
+
+  letter-spacing: normal;
+
+  color: #000000;fo"
+  
+  margin-left: 5%;
+}
+
+#chatbot-usertext{
+  border: none;
+}
+#chatbot{
+  height: 400px;
+  width: 600px;
+  margin-left: 30%;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-newsfeed{
+  width:450px;
+  height : 150px;
+}

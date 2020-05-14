@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+{% block heading %}
+Our chatbot is here to help!
+{% endblock heading %} 
+{% block content %}
+<br><br>
+<div class="card" id="chatbot">
+    <div class="card-header" id="chatbot-header">
+        Chat with Cardiobot
+    </div>
+    <div class="card-body">
+        <div>
+             User: {{user_input}}
+        </div>
+        <div>
+            Friend: {{bot_response}}
+        </div>
+    </div>
+    <div class="card-footer">
+	<form  action="/process" method="POST" id="chatbot-usertext">
+        <div class="form-group row">
+            <div class="col-sm-9">
+                <input type="textarea" name="user_input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="What's on your mind?"><br>
+            </div>
+            <div class="col-sm-3">
+                <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+            </div>    
+        </div>        
+    </form>
+</div>
+</div>
+<br><br>
+{% endblock content %}

@@ -21,7 +21,7 @@
             <a class="nav-link text-center top-nav-link mx-auto" href="#">Contact</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link text-center top-nav-link mx-auto" href="#">Newsfeed</a>
+            <a class="nav-link text-center top-nav-link mx-auto" href="{{url_for('newsfeed')}}">Newsfeed</a>
           </li>
           <li class="nav-item">
             <a class="nav-link text-center top-nav-link mx-auto" id="last" href="#">About Us</a>
@@ -40,9 +40,14 @@
           User Options
         </button>
         <div class="dropdown-menu dropdown-menu-right" >
-          <button class="dropdown-item" type="button" data-toggle="modal" data-target="#loginForm">Login</button>
-          <button class="dropdown-item" type="button" data-toggle="modal" data-target="#regForm">Sign Up</button>
-        </div>
+          {% if current_user.is_authenticated %}
+          <button class="dropdown-item bt" type="button"><a href="{{ url_for('logout') }}">Logout</a></button>
+          <button class="dropdown-item bt" type="button"><a href="{{ url_for('account') }}">Account</a></button>
+          {% else %}
+            <button class="dropdown-item" type="button"><a href="{{ url_for('login') }}">Login</a></button>
+            <button class="dropdown-item" type="button"><a href="{{ url_for('register') }}">Sign up</a></button>
+          {% endif %}
+          </div>
       </div>
     </nav>
   </div>
@@ -57,6 +62,15 @@
     </header>    
     {% include "partials/login.html" %}
     {% include "partials/register.html" %}
+    {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+              {% for category, message in messages %}
+                <div class="alert alert-{{ category }}">
+                  {{ message }}
+                </div>
+              {% endfor %}
+            {% endif %}
+          {% endwith %}
     {% block content %}{% endblock %}
     <footer id="sticky-footer" class="py-4 text-white-50">
       <div class="container text-center">

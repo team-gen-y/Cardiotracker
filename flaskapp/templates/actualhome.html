@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+{% block heading %}
+Welcome to Cardiotracker
+{% endblock heading %} 
+{% block content %}
+
+    <h1 class="Risk-checker mx-auto">Risk checker</h1>
+    <h2 class="why">How we predict your risk level</h2>
+     <div class="media container-fluid mt-3 mb-3">
+      <img class="mr-3" src="https://cdn.zeplin.io/5eb6d737c826984e0aac805d/assets/076b150a-cef6-4488-9520-edb74a5f2801.svg" alt="Generic placeholder image">
+      <div class="media-body">
+          <p class="text-justify pt-3 mt-2" style="font-size: 2.8vh;">
+              From the quick survey we take factors such as age, height,weight etc. from the 
+              user. From an already defined dataset of patients who had heart diseases – 
+              which is our training set, we can make use of models which can estimate some 
+              patterns for predictions and we can predict whether one is at risk or not.
+              This is done using a specific machine learning algorithm – <br><br>
+              Random Forrest Classifier. <br><br>
+              Random forest, consists of a large number ofindividual decision trees that 
+              operate as an ensemble. Each individual tree in the random forest 
+              spits out a class prediction and the class with the most votes becomes our 
+              model’s prediction.                 
+          </p>
+      </div>
+  </div>
+  <h1 class="why">Why use Machine learning</h1>
+  <p class="why-yes">
+    Machine Learning deals with big data and statistics helps us in terms of giving us smart alternatives to analyzing huge
+    chunks of data. ML produces accurate results by developing fast and efficient algorithms.<br><br>A key machine learning 
+    benefit concerns this technology’s ability to review large volumes of data and identify patterns and trends that might 
+    not be apparent to a human. For instance, a machine learning program may successfully pinpoint a causal relationship 
+    between two events. This makes the technology highly effective at data mining, particularly on a continual, ongoing basis,
+    as would be required for an algorithm. The ability to quickly and accurately identify trends or patterns is one of the key 
+    advantages of machine learning. 
+  </p>
+  <br>
+  <p class="why-yes">
+    One of the chief ML applications in healthcare is the identification and diagnosis of diseases and ailments which are
+    otherwise considered hard-to-diagnose. This can include anything from cancers which are tough to catch during the
+    initial stages, to other genetic diseases 
+  </p>
+  <br>
+  <br>
+  <div style="width: 50%;" class="mx-auto">
+    <button type="button" class="btn btn-lg bg-dark btn-block"><a style="color: white;" href="{{url_for('test')}}">Test yourself</a></button>  <br>
+  </div>
+  <br>
+{% endblock content %}

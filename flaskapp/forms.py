@@ -1,7 +1,6 @@
 from flask_wtf import FlaskForm
-from wtforms import StringField,IntegerField,RadioField, SelectField,SubmitField
-from wtforms.validators import DataRequired, Length, Email 
-
+from wtforms import StringField,IntegerField,RadioField, SelectField,SubmitField,PasswordField,BooleanField
+from wtforms.validators import DataRequired, Length, Email , EqualTo
 class NonValidatingSelectField(SelectField):
     def pre_validate(self, form):
         pass
@@ -40,3 +39,22 @@ class cardioForm(FlaskForm):
     disease = NonValidatingSelectField('Presence of cardiovascular disease',
                         choices=[(1,'Yes'),(0,'No')])
     submit = SubmitField('View Result')
+
+
+class RegistrationForm(FlaskForm):
+    username = StringField('Username',
+                           validators=[DataRequired(), Length(min=2, max=20)])
+    email = StringField('Email',
+                        validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    confirm_password = PasswordField('Confirm Password',
+                                     validators=[DataRequired(), EqualTo('password')])
+    submit = SubmitField('Sign Up')
+
+
+class LoginForm(FlaskForm):
+    email = StringField('Email',
+                        validators=[DataRequired(), Email()])
+    password = PasswordField('Password', validators=[DataRequired()])
+    remember = BooleanField('Remember Me')
+    submit = SubmitField('Login')
