@@ -3,14 +3,13 @@
 The latest information in cardiovascular medicine
 {% endblock heading %} 
 {% block content %}
-<div class="container">
-    <div class="card-deck">
-    <div class="card">
+<div class="container" style="max-width: 1500px;">
+    <div class="row">
         {% for headline in allheadlines %}
-        <div class="card card-newsfeeds">
+        <div class="card col-sm-5 d-flex align-items-stretch">
             <h3 class="card-header">{{ headline.title }}</h1>
-            <a href="{{ headline.link }}" class="card-body">Read full story</a>
-            <h4 class="card-footer">{{ headline.description }}</h4>
+                <h4 class="card-body">By : {{ headline.description }}</h4>
+            <a href="{{ headline.link }}" class="card-footer">Read full story</a>
         </div>
         {% endfor %}
     </div>

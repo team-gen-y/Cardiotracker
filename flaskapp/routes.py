@@ -1,9 +1,10 @@
 from flask import Flask, render_template,url_for, redirect,flash, request
 from flaskapp import app ,db
-from flaskapp.models import cardioData,User
-from flaskapp.forms import cardioForm,LoginForm,RegistrationForm
+from flaskapp.models import cardioData,User, graphData
+from flaskapp.forms import cardioForm,LoginForm,RegistrationForm,graphForm
 from flaskapp.newsfeed import allheadlines
 import numpy as np
+import csv
 from flaskapp.cardiobot_predict import chatbot_response
 from flaskapp.prediction import model
 from flask_login import login_user, current_user,logout_user, login_required
@@ -88,3 +89,21 @@ def account():
 @login_required
 def newsfeed():
     return render_template('newsfeed.html',allheadlines=allheadlines)
+
+@app.route('/userform', methods=['GET', 'POST'])
+@login_required
+def userform():
+    form = graphForm()
+    if form.validate_on_submit():
+        flash(f'Data entered!', 'success')    
+        graphEntry = graphData(age=form.age.data,gender=form.gender.data,height=form.height.data,weight=form.weight.data,bmi=form.bmi.data,ap_lo=form.s_blood_pressure.data,ap_hi=form.d_blood_pressure.data,pulse=form.pulse.data,num_smoke=form.smoke.data,num_alco=form.alcohol.data,activ_time=form.activity.data,user_id=current_user.id)
+        db.session.add(graphEntry)
+        db.session.commit()
+        with open('flaskapp/attempt.csv','w',newline='') as file:
+            writer = csv.writer(file)
+            writer.writerow(['id','age','gender','height','weight','bmi','ap_lo','ap_hi','date'])
+            array = current_user.entry
+            for entry in array:
+                 writer.writerow([entry.age,entry.gender,entry.height,entry.weight,entry.bmi,entry.ap_lo,entry.ap_hi,entry.pulse,entry.num_smoke,entry.num_alco,entry.activ_time,entry.date])
+        return redirect(url_for('login'))
+    return render_template('userform.html',form=form,current_user=current_user)

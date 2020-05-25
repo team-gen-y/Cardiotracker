@@ -1,0 +1,100 @@
+{% extends "layout.html" %}
+{% block heading %}
+Welcome to Cardiotracker!
+{% endblock heading %}
+{% block content %}
+    <div class="content-section container" id="home-form">
+        <legend class=" mb-4 ml-2">Complete the form with accurate details to get the best results</legend>
+        <legend class=" mb-4 ml-2">Form Details</legend>
+        <form method="POST" action="">
+            {{ form.csrf_token }}
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <div class="form-group row">
+                    {{ form.age.label(class='col-sm-2 col-form-label') }}
+                    {% if form.age.errors %}
+                        {{form.age(class="form-control is-invalid")}}
+                        <div class="invalid-feedback">
+                            {% for error in form.age.errors %}
+                            <span>{{error}}</span>
+                            {% endfor %}
+                        </div>
+                    {% else %}
+                   <div class="col-sm-5">
+                    {{ form.age(class='form-control') }}
+                   </div>
+                   {% endif %}
+                </div>
+                <div class="form-group row">
+                    {{ form.height.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.height(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.weight.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.weight(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.bmi.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.bmi(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row ">
+                    {{ form.gender.label(class='col-sm-2 col-form-label radio-inline') }}
+                   <div class="col-sm-5">
+                    {% for subfield in form.gender %}
+                    <tr class="col-sm-5">
+                        <td class="col-sm-2">{{ subfield }}</td>
+                        <td class="col-sm-2">{{ subfield.label }}</td>
+                    </tr>
+                    {% endfor %}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.s_blood_pressure.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.s_blood_pressure(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.d_blood_pressure.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.d_blood_pressure(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.pulse.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.pulse(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.smoke.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.smoke(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.alcohol.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.alcohol(class='form-control') }}
+                   </div>
+                </div>
+                <div class="form-group row">
+                    {{ form.activity.label(class='col-sm-2 col-form-label') }}
+                   <div class="col-sm-5">
+                    {{ form.activity(class='form-control') }}
+                   </div>
+                </div>
+            </fieldset>
+            <div class="form-group submit-home">
+                {{ form.submit(class="btn btn-dark") }}
+            </div>
+        </form>
+        <h1>{{current_user.id}}</h1>
+    </div>
+{% endblock content %}

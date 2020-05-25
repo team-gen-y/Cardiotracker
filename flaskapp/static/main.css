@@ -229,7 +229,7 @@ form{
   margin-left: 30%;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-.card-newsfeed{
-  width:450px;
-  height : 150px;
+
+.card-deck{
+  flex-direction: column;
 }

@@ -58,3 +58,29 @@ class LoginForm(FlaskForm):
     password = PasswordField('Password', validators=[DataRequired()])
     remember = BooleanField('Remember Me')
     submit = SubmitField('Login')
+
+class graphForm(FlaskForm):
+    age = IntegerField('Age',
+                        validators=[DataRequired()])
+    gender = NonValidatingRadioField('Gender',
+                        choices=[(1,'Male'),(2,'Female')],
+                        validators=[DataRequired()])
+    height = IntegerField('Height',
+                        validators=[DataRequired()])
+    weight = IntegerField('Weight',
+                        validators=[DataRequired()])
+    bmi = IntegerField('Bmi',
+                        validators=[DataRequired()])
+    s_blood_pressure = IntegerField('Systolic blood pressure',
+                        validators=[DataRequired()])
+    d_blood_pressure = IntegerField('Diastolic blood pressure',
+                        validators=[DataRequired()])
+    pulse = IntegerField('Pulse',
+                        validators=[DataRequired()])
+    smoke = IntegerField('Cigarettes per day',
+                        validators=[DataRequired()])
+    alcohol = IntegerField('Alcohol intake per day',
+                        validators=[DataRequired()])
+    activity = IntegerField('Exercise per day in minutes',
+                        validators=[DataRequired()])
+    submit = SubmitField('Enter your details')
