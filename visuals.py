@@ -36,6 +36,7 @@ df.bp_sum = pd.to_numeric(df.bp_sum)
 #empty the csv file
 def clear_all():
     global df
+    df = df.drop(['bp_cat', 'bmi_cat', 'bp_sum'], axis = 1)
     df = df[0:0]
     df.to_csv('user_data.csv')
 
