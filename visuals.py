@@ -69,7 +69,7 @@ def Activity_Display(df):
 #clear csv
 def clear_all(df):
     df = df[0:0]
-    df = pd.to_csv('user_data.csv')
+    df = df.to_csv('user_data.csv')
 
 
 ########## ALL FUNCTOINS ##############
