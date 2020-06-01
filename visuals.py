@@ -88,3 +88,5 @@ Smoke_Display(df)
 Alcohol_Display(df)
 #Linear Display of active time per day
 Activity_Display(df)
+#clear csv
+clear_all(df)
