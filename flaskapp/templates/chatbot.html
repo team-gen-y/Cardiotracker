@@ -4,7 +4,7 @@ Our chatbot is here to help!
 {% endblock heading %} 
 {% block content %}
 <br><br>
-<div class="card" id="chatbot">
+<!-- <div class="card" id="chatbot">
     <div class="card-header" id="chatbot-header">
         Chat with Cardiobot
     </div>
@@ -28,6 +28,43 @@ Our chatbot is here to help!
         </div>        
     </form>
 </div>
-</div>
+</div> -->
+<!-- Modal -->
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal" id="chat-modal">
+    <i class="fa fa-comment-o" aria-hidden="true"></i>
+</button>
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div>
+                User: {{user_input}}
+           </div>
+           <div>
+               Friend: {{bot_response}}
+           </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form  action="/process" method="POST" id="chatbot-usertext">
+            <div class="form-group row">
+                <div class="col-sm-9">
+                    <input type="textarea" name="user_input" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="What's on your mind?"><br>
+                </div>
+                <div class="col-sm-3">
+                    <button type="submit" class="btn btn-primary"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
+                </div>    
+            </div>        
+        </form>
+        </div>
+      </div>
+    </div>
+  </div>
 <br><br>
 {% endblock content %}

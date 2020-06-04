@@ -1,13 +1,17 @@
+import csv
+from flaskapp.clear import clear
 from flask import Flask, render_template,url_for, redirect,flash, request
 from flaskapp import app ,db
 from flaskapp.models import cardioData,User, graphData
 from flaskapp.forms import cardioForm,LoginForm,RegistrationForm,graphForm
 from flaskapp.newsfeed import allheadlines
 import numpy as np
-import csv
+from flaskapp.visuals import smokeperday,bpdisp,alcoperday,activtime,bminweight
+import pandas as pd
 from flaskapp.cardiobot_predict import chatbot_response
-from flaskapp.prediction import model
+from flaskapp.prediction import Predict,Risk
 from flask_login import login_user, current_user,logout_user, login_required
+from flaskapp.visuals_2 import BP_display,Smoke_Display,Activity_Display,Alcohol_Display,Pulse_Display,BMI_Display
 
 @app.route('/')
 def home():
@@ -43,9 +47,10 @@ def test():
 def result():
     users=cardioData.query.all()
     user=users[-1]
-    arr = np.array([[user.gender,user.height,user.weight,user.systolic,user.diastolic,user.cholestrol,user.glucose,user.smoking,user.alcohol,user.physical,user.age]])
-    stat=model.predict(arr)
-    return render_template('result.html',stat=stat)
+    arr = np.array([[user.gender,user.height,user.weight,user.systolic,user.diastolic,user.cholestrol,user.glucose,user.smoking,user.alcohol,user.physical,user.age,user.disease]])
+    stat=Predict(arr)
+    risk=Risk(arr)
+    return render_template('result.html',stat=stat,risk=risk)
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
@@ -79,6 +84,10 @@ def logout():
     logout_user()
     return redirect(url_for('home'))
 
+@app.route('/charts')
+def charts():
+    return render_template('charts.html')
+
 @app.route('/account')
 @login_required
 def account():
@@ -99,11 +108,20 @@ def userform():
         graphEntry = graphData(age=form.age.data,gender=form.gender.data,height=form.height.data,weight=form.weight.data,bmi=form.bmi.data,ap_lo=form.s_blood_pressure.data,ap_hi=form.d_blood_pressure.data,pulse=form.pulse.data,num_smoke=form.smoke.data,num_alco=form.alcohol.data,activ_time=form.activity.data,user_id=current_user.id)
         db.session.add(graphEntry)
         db.session.commit()
-        with open('flaskapp/attempt.csv','w',newline='') as file:
+        with open('flaskapp/user_data.csv','a',newline='') as file:
             writer = csv.writer(file)
-            writer.writerow(['id','age','gender','height','weight','bmi','ap_lo','ap_hi','date'])
+            #writer.writerow(['age','gender','height','weight','bmi','ap_lo','ap_hi','pulse','num_smoke','num_alco','activ_time','date'])
             array = current_user.entry
             for entry in array:
                  writer.writerow([entry.age,entry.gender,entry.height,entry.weight,entry.bmi,entry.ap_lo,entry.ap_hi,entry.pulse,entry.num_smoke,entry.num_alco,entry.activ_time,entry.date])
-        return redirect(url_for('login'))
+        df = pd.read_csv('flaskapp/user_data.csv')
+        #from flaskapp.visuals_2 import BP_display,Smoke_Display,Activity_Display,Alcohol_Display,Pulse_Display,BMI_Display
+        Smoke_Display(df)
+        Activity_Display(df)
+        Alcohol_Display(df)
+        Pulse_Display(df)
+        BMI_Display(df)
+        BP_display(df)
+        clear()
+        return redirect(url_for('charts'))
     return render_template('userform.html',form=form,current_user=current_user)
