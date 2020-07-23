@@ -12,6 +12,7 @@ from flaskapp.cardiobot_predict import chatbot_response
 from flaskapp.prediction import Predict,Risk
 from flask_login import login_user, current_user,logout_user, login_required
 from flaskapp.visuals_2 import BP_display,Smoke_Display,Activity_Display,Alcohol_Display,Pulse_Display,BMI_Display
+from flask import request
 
 @app.route('/')
 def home():
@@ -29,6 +30,13 @@ def process():
 @app.route('/chatbot',methods=['GET','POST'])
 def chatbot():
     return render_template('chatbot.html')
+
+@app.route('/endpoint',methods=['GET','POST'])
+def endpoint():
+    user_input = request.args.get('input')
+    return {
+        'response': chatbot_response(user_input)
+    }
 
 @app.route("/test", methods=['GET', 'POST'])
 def test():
@@ -85,6 +93,7 @@ def logout():
     return redirect(url_for('home'))
 
 @app.route('/charts')
+@login_required
 def charts():
     return render_template('charts.html')
 

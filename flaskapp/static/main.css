@@ -177,6 +177,10 @@ form{
   width: 50%;
  } */
 
+.blurb{
+  font-size: 2.8vh;
+}
+
 .why{
   width: 722px;
 
@@ -215,9 +219,10 @@ form{
 
   letter-spacing: normal;
 
-  color: #000000;fo"
+  color: #000000;
   
   margin-left: 5%;
+  padding: 10px;
 }
 
 #chatbot-usertext{
@@ -232,4 +237,40 @@ form{
 
 .card-deck{
   flex-direction: column;
+}
+
+@media only screen and (max-width: 1110px) {
+  #home-img{
+    display: none;
+  }
+
+  .top-sec{
+    font-size: 1vh;
+    margin-left: 5%;
+    padding: 10px;
+  }
+
+  .why{
+    margin-left: 5%;
+    padding: 10px;
+    font-size: 3vh;
+  }
+
+  .blurb{
+    font-size: 2.5vh;
+  }
+
+}
+@media only screen and (max-width: 410px) {
+  .typer{
+    font-size: 1.7em;
+    padding-left: 10px;
+  }
+}
+
+@media only screen and (max-width: 550px) and (min-width: 411px) {
+  .typer{
+    font-size: 1.8em;
+    padding-left: 8%;
+  }
 }
