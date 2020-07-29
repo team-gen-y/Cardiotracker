@@ -64,7 +64,7 @@
   }
   .top-nav-link{
     color: white;
-    font-size: 10vh;
+    font-size: 9vh;
     padding: 30px;
   }
 
@@ -149,9 +149,8 @@
 
 .Risk-checker {
   width: 319px;
-  height: 71px;
   font-family: Poppins;
-  font-size: 50px;
+  font-size: 40px;
   font-weight: 600;
   font-stretch: normal;
   font-style: normal;
@@ -272,5 +271,21 @@ form{
   .typer{
     font-size: 1.8em;
     padding-left: 8%;
+  }
+}
+
+@media only screen and (max-width: 937px) {
+  .mobile-hide{
+    display: none;
+  }
+
+  .mobile-show{
+    display: block;
+  }
+}
+
+@media only screen and (min-width: 937px) {
+  .mobile-show{
+    display: none;
   }
 }

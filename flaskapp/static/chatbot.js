@@ -9,7 +9,7 @@ form.addEventListener('submit',(e) => {
     e.preventDefault();
     console.log(button.value);
     const input = button.value;
-    fetch('http://localhost:5000/endpoint?input='+input).then((response) =>{
+    fetch('/endpoint?input='+input).then((response) =>{
     response.json().then((data) =>{
         if(data.error){
            console.log(data.error); 

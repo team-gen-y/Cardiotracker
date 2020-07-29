@@ -3,11 +3,10 @@
 View detailed insights and full report
 {% endblock heading %} 
 {% block content %}
-<div class="card-group">
+<div class="card-group mobile-hide">
 <div class="card">
     <img class="card-img-top" src="https://cdn.zeplin.io/5eb6d737c826984e0aac805d/assets/25b274c6-6550-4376-9d9e-d8d8579c7492.png" alt="Card image">
     <div class="card-img-overlay">
-    
     </div>
 </div>
 <div class="card">
@@ -57,4 +56,48 @@ View detailed insights and full report
     </form>
 </div>
 </div>
+<form method="POST" action="" class="card-body mobile-show container-fluid" style="width: 70%;">
+    {{ form.hidden_tag() }}
+    <fieldset class="form-group">
+        <legend class="border-bottom mb-4 ">Log In</legend>
+        <div class="form-group ">
+            {{ form.email.label(class="form-control-label") }}
+            {% if form.email.errors %}
+                {{ form.email(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.email.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.email(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-group ">
+            {{ form.password.label(class="form-control-label") }}
+            {% if form.password.errors %}
+                {{ form.password(class="form-control form-control-lg is-invalid") }}
+                <div class="invalid-feedback">
+                    {% for error in form.password.errors %}
+                        <span>{{ error }}</span>
+                    {% endfor %}
+                </div>
+            {% else %}
+                {{ form.password(class="form-control form-control-lg") }}
+            {% endif %}
+        </div>
+        <div class="form-check">
+            {{ form.remember(class="form-check-input") }}
+            {{ form.remember.label(class="form-check-label") }}
+        </div>
+    </fieldset>
+    <div class="form-group bts mx-auto">
+        {{ form.submit(class="form-control bt bts mx-auto") }}
+    </div>
+    <div class="form-group bts mx-auto">
+    <small class="text-muted ml-2">
+        <a href="#">Forgot Password?</a>
+    </small>
+    </div>
+</form>
 {% endblock content %}

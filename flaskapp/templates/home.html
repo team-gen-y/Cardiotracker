@@ -10,7 +10,7 @@ Welcome to Cardiotracker!
             {{ form.csrf_token }}
             {{ form.hidden_tag() }}
             <fieldset class="form-group">
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.name.label(class='col-sm-2 col-form-label') }}
                     {% if form.name.errors %}
                         {{form.name(class="form-control is-invalid")}}
@@ -25,7 +25,7 @@ Welcome to Cardiotracker!
                    </div>
                    {% endif %}
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.age.label(class='col-sm-2 col-form-label') }}
                     {% if form.age.errors %}
                         {{form.age(class="form-control is-invalid")}}
@@ -40,19 +40,19 @@ Welcome to Cardiotracker!
                    </div>
                    {% endif %}
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.height.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.height(class='form-control') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.weight.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.weight(class='form-control') }}
                    </div>
                 </div>
-                <div class="form-group row ">
+                <div class="form-group row p-2 ">
                     {{ form.gender.label(class='col-sm-2 col-form-label radio-inline') }}
                    <div class="col-sm-5">
                     {% for subfield in form.gender %}
@@ -63,49 +63,49 @@ Welcome to Cardiotracker!
                     {% endfor %}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.s_blood_pressure.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.s_blood_pressure(class='form-control') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.d_blood_pressure.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.d_blood_pressure(class='form-control') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.cholestrol.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.cholestrol(class='form-control custom-select') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.glucose.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.glucose(class='form-control custom-select') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.smoking.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.smoking(class='form-control custom-select') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.alcohol.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.alcohol(class='form-control custom-select') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.physical.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.physical(class='form-control custom-select') }}
                    </div>
                 </div>
-                <div class="form-group row">
+                <div class="form-group row p-2">
                     {{ form.disease.label(class='col-sm-2 col-form-label') }}
                    <div class="col-sm-5">
                     {{ form.disease(class='form-control custom-select') }}
@@ -113,7 +113,7 @@ Welcome to Cardiotracker!
                 </div>
             </fieldset>
             <div class="form-group submit-home">
-                {{ form.submit(class="btn btn-dark") }}
+                {{ form.submit(class="btn btn-dark form-control") }}
             </div>
         </form>
     </div>
