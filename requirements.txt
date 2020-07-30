@@ -35,16 +35,16 @@ Flask-SQLAlchemy==2.4.1
 Flask-WTF==0.14.3
 future==0.18.2
 gast==0.3.3
-# google-auth==1.14.3
-# google-auth-oauthlib==0.4.1
-# google-pasta==0.2.0
+google-auth==1.14.3
+google-auth-oauthlib==0.4.1
+google-pasta==0.2.0
 grpcio==1.28.1
 gunicorn==20.0.4
 h5py==2.10.0
 httplib2==0.14.0
 idna==2.8
 isort==4.3.21
-# itsdangerous==1.1.0
+itsdangerous==1.1.0
 Jinja2==2.11.2
 joblib==0.14.1
 Keras==2.3.1
@@ -54,9 +54,9 @@ keyring==18.0.1
 kiwisolver==1.2.0
 # language-selector==0.1
 launchpadlib==1.10.13
-# lazr.restfulclient==0.14.2
-# lazr.uri==1.0.3
-# lazy-object-proxy==1.4.3
+lazr.restfulclient==0.14.2
+lazr.uri==1.0.3
+lazy-object-proxy==1.4.3
 lockfile==0.12.2
 # louis==3.12.0
 lxml==4.5.0
