@@ -289,3 +289,7 @@ form{
     display: none;
   }
 }
+
+#chat-modal{
+  margin-left: 90%;
+}

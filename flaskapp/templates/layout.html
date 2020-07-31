@@ -41,8 +41,9 @@
         </button>
         <div class="dropdown-menu dropdown-menu-right" >
           {% if current_user.is_authenticated %}
-          <button class="dropdown-item bt" type="button"><a href="{{ url_for('logout') }}">Logout</a></button>
-          <button class="dropdown-item bt" type="button"><a href="{{ url_for('account') }}">Account</a></button>
+          <button class="dropdown-item" type="button"><a href="{{ url_for('logout') }}">Logout</a></button>
+          <button class="dropdown-item" type="button"><a href="{{ url_for('userform') }}">Tracker</a></button>
+          <button class="dropdown-item" type="button"><a href="{{ url_for('charts') }}">Charts</a></button>
           {% else %}
             <button class="dropdown-item" type="button"><a href="{{ url_for('login') }}">Login</a></button>
             <button class="dropdown-item" type="button"><a href="{{ url_for('register') }}">Sign up</a></button>
